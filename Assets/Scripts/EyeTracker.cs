@@ -21,14 +21,13 @@ public class EyeTracker : MonoBehaviour
     
     #endregion
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         m_MainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        //InvokeRepeating("CheckForTarget", 2.0f, 0.5f);
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         m_MousePosition = Input.mousePosition;
@@ -52,10 +51,6 @@ public class EyeTracker : MonoBehaviour
 
     }
 
-    void LockOnTarget()
-    {
-
-    }
 
     /// <summary>
     /// Identifies the object the user is looking at. Weights a number of raycasts in a period of time and identifies the most frequent object.
@@ -65,7 +60,7 @@ public class EyeTracker : MonoBehaviour
     {
         //Debug.Log("START");
         //Variables
-        float Timer = 0.5f;
+        float Timer = 0.4f;
         float timeStep = 0.1f;
         float currentTime = 0.0f;
 
@@ -73,28 +68,30 @@ public class EyeTracker : MonoBehaviour
         Ray ray;
         List<int> hitIDs = new List<int>();
 
-        //Checking if in a period of time, user looks at the same target
+        //Checking at what objects the user looks in a period of time
         while(currentTime < Timer)
         {
             currentTime += timeStep;
             ray = m_MainCamera.ScreenPointToRay(m_MousePosition);
+
             if (Physics.Raycast(ray, out hit))
             {
                 Transform objectHit = hit.transform;
-                //Debug.Log("Hit @ " + objectHit);
+
                 if (hit.transform.GetComponent<Interactable>() != null)
                 {
                     int id = hit.transform.GetComponent<Interactable>().GetID();
                     hitIDs.Add(id);
                 }
-                //m_LockedTarget = hit.transform;
+
             }
-            //Debug.Log("LOOPING @ "+ currentTime);
+
             yield return new WaitForSeconds(timeStep);
         }
 
-        //Debug.Log("EXIT");
-        CheckForMostFrequent(hitIDs);
+        //Set target to most looked at object, null if user looks at non interactable objects
+        m_LockedTarget = CheckForMostFrequent(hitIDs);
+        //Exit the search
         m_LookingForTarget = false;
         yield return null;
     }
@@ -102,14 +99,14 @@ public class EyeTracker : MonoBehaviour
     /// <summary>
     /// Samples through hit objects in time period and calculates the most frequent one
     /// </summary>
-    private void CheckForMostFrequent(List<int> hitIDs)
+    private GameObject CheckForMostFrequent(List<int> hitIDs)
     {
         
         int n = hitIDs.Count;
         //If list is empty, abort
         if (n == 0)
         {
-            return;
+            return null;
         }
 
 
@@ -143,16 +140,16 @@ public class EyeTracker : MonoBehaviour
             res = hitIDs[n - 1];
         }
 
-        //Set lockedtarget to gameobject with id that occurs the most in time t
-        //Debug.Log(res);
+        //Return GameObject if present, or null if not
         if (BM.LookUpObjectByID(res) == null)
         {
-            m_LockedTarget = null;
-            return;
+            return null;
         }
-        //Debug.Log("MostFrequent: " + BM.LookUpObjectByID(res).name);
-        m_LockedTarget = BM.LookUpObjectByID(res);
-
+        else
+        {
+            return BM.LookUpObjectByID(res);
+        }
+        
 
     }
 }
