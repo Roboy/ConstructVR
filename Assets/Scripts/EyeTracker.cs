@@ -8,6 +8,8 @@ public class EyeTracker : MonoBehaviour
     #region VAR
 
     [Header("Attributes")]
+    [Range(0.0f, 1.0f)]
+    public float OutlineThickness;
     [SerializeField]
     private Vector2 m_MousePosition;
 
@@ -68,8 +70,9 @@ public class EyeTracker : MonoBehaviour
         Ray ray;
         List<int> hitIDs = new List<int>();
 
+        #region Raycasting
         //Checking at what objects the user looks in a period of time
-        while(currentTime < Timer)
+        while (currentTime < Timer)
         {
             currentTime += timeStep;
             ray = m_MainCamera.ScreenPointToRay(m_MousePosition);
@@ -89,8 +92,42 @@ public class EyeTracker : MonoBehaviour
             yield return new WaitForSeconds(timeStep);
         }
 
-        //Set target to most looked at object, null if user looks at non interactable objects
-        m_LockedTarget = CheckForMostFrequent(hitIDs);
+        #endregion
+
+        #region ResultEval
+        GameObject ResultObject = CheckForMostFrequent(hitIDs);
+        //In case the result is negative, remove outline from former locked target
+        if (ResultObject == null)
+        {
+            if (m_LockedTarget)
+            {
+                m_LockedTarget.GetComponent<Renderer>().material.SetFloat("_FirstOutlineWidth", 0.0f);
+                m_LockedTarget = null;
+            }
+        }
+        else
+        {
+            //Current locked target is different from new one
+            if (m_LockedTarget != ResultObject)
+            {
+                //Only change the outline if not null
+                if (m_LockedTarget)
+                {
+                    m_LockedTarget.GetComponent<Renderer>().material.SetFloat("_FirstOutlineWidth", 0.0f);
+                    m_LockedTarget = ResultObject;
+                    m_LockedTarget.GetComponent<Renderer>().material.SetFloat("_FirstOutlineWidth", OutlineThickness);
+                }
+            }
+            //Before the check there was no locked target
+            if (m_LockedTarget == null)
+            {
+                m_LockedTarget = ResultObject;
+                m_LockedTarget.GetComponent<Renderer>().material.SetFloat("_FirstOutlineWidth", OutlineThickness);
+            }
+            
+        }
+#endregion       
+
         //Exit the search
         m_LookingForTarget = false;
         yield return null;

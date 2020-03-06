@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: mat_Outlined
   m_Shader: {fileID: 4800000, guid: ba046cce3c02aa849b373c98abf8d3b4, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _GLOSSYREFLECTIONS_OFF _SPECULARHIGHLIGHTS_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -62,23 +62,25 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Emission: 0.5
-    - _EmissionIntensity: 0
-    - _FirstOutlineWidth: 0.025
-    - _GlossMapScale: 1
-    - _Glossiness: 0.767
-    - _GlossyReflections: 1
+    - _EmissionIntensity: 0.296
+    - _FirstOutlineWidth: 0
+    - _Gloss: 1
+    - _GlossMapScale: 0.474
+    - _Glossiness: 0.923
+    - _GlossyReflections: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SecondOutlineWidth: 0
-    - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
+    - _SmoothnessTextureChannel: 1
+    - _Specular: 0.5
+    - _SpecularHighlights: 0
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.759434, g: 1, b: 0.79035956, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _FirstOutlineColor: {r: 1, g: 0.96918243, b: 0, a: 1}
     - _SecondOutlineColor: {r: 0, g: 0, b: 0, a: 1}

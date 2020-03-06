@@ -1,13 +1,13 @@
 ﻿//This version of the shader does support shadows, but it does not support transparent outlines
 
-Shader "Outlined/UltimateOutlineShadows"
+Shader "Outlined/WithShadows"
 {
 	Properties
 	{
 		_Color("Main Color", Color) = (0.5,0.5,0.5,1)
 		_MainTex("Texture", 2D) = "white" {}
 
-	_FirstOutlineColor("Outline color", Color) = (1,0,0,0.5)
+		_FirstOutlineColor("Outline color", Color) = (1,0,0,0.5)
 		_FirstOutlineWidth("Outlines width", Range(0.0, 2.0)) = 0.15
 
 		_SecondOutlineColor("Outline color", Color) = (0,0,1,1)
