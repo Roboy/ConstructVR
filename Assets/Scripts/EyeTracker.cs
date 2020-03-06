@@ -13,6 +13,12 @@ public class EyeTracker : MonoBehaviour
     [SerializeField]
     private Vector2 m_MousePosition;
 
+    [Header ("Explosion")]
+    [Range(50.0f, 850.0f)]
+    public float ExplosionForce = 200.0f;
+    [Range(0.5f, 5.0f)]
+    public float ExplosionRadius = 4.0f;
+
     [Header("References")]
     public BallManager BM;
     [SerializeField]
@@ -45,6 +51,21 @@ public class EyeTracker : MonoBehaviour
             if (m_LockedTarget != null)
             {
                 BM.UpdateReferences(m_LockedTarget, m_LockedTarget.GetComponent<Interactable>().GetID());
+                Collider[] hits = Physics.OverlapSphere(m_LockedTarget.transform.position, ExplosionRadius);
+                foreach (Collider h in hits)
+                {
+                    GameObject go = h.gameObject;
+                    if (go.GetComponent<Interactable>())
+                    {
+
+                        Rigidbody rb = h.GetComponent<Rigidbody>();
+                        if (rb != null)
+                        {
+                            rb.AddExplosionForce(ExplosionForce, m_LockedTarget.transform.position, ExplosionRadius, 5.0f);
+                        }
+                    }
+                }
+
                 Destroy(m_LockedTarget);
                 m_LockedTarget = null;
             }
