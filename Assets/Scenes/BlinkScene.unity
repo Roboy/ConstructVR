@@ -158,8 +158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b165c222192684ebd953ae18bb75f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionForce: 0
-  ExplosionRadius: 0
+  ExplosionForce: 200
+  ExplosionRadius: 2
 --- !u!1 &101424550 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8078645935263276922, guid: 8f2afc080790ca748a90992772dd9ce4,
@@ -429,6 +429,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OutlineThickness: 0.1
   m_MousePosition: {x: 0, y: 0}
+  ExplosionForce: 303
+  ExplosionRadius: 2.38
   BM: {fileID: 651196010}
   m_MainCamera: {fileID: 0}
   m_LockedTarget: {fileID: 0}
