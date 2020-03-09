@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// EyeTracker checks for GameObjects that the user looks at. If it is of the type "Interactable", it will be highlighted by an outline.
+/// This selected target can then be removed by blinking, triggering a physics effect.
+/// </summary>
 public class EyeTracker : MonoBehaviour
 {
     #region VAR
@@ -38,6 +42,7 @@ public class EyeTracker : MonoBehaviour
     
     void Update()
     {
+        //Eye tracking position will replace this
         m_MousePosition = Input.mousePosition;
 
         if (m_LookingForTarget == false)
@@ -46,15 +51,20 @@ public class EyeTracker : MonoBehaviour
             StartCoroutine(CheckForTarget());
         }
 
+
+        //Blinking will replace the button press in the future
+        //This action removes the locked target gameObject and leaves a force effect in the area
         if (Input.GetKeyDown(KeyCode.X))
         {
             if (m_LockedTarget != null)
             {
+                //Removes all references of the locked target in the scene, so it can be safely removed
                 BM.UpdateReferences(m_LockedTarget, m_LockedTarget.GetComponent<Interactable>().GetID());
                 Collider[] hits = Physics.OverlapSphere(m_LockedTarget.transform.position, ExplosionRadius);
                 foreach (Collider h in hits)
                 {
                     GameObject go = h.gameObject;
+                    //Only affects other interactables for now
                     if (go.GetComponent<Interactable>())
                     {
 
@@ -81,7 +91,6 @@ public class EyeTracker : MonoBehaviour
     /// <returns></returns>
     IEnumerator CheckForTarget()
     {
-        //Debug.Log("START");
         //Variables
         float Timer = 0.4f;
         float timeStep = 0.1f;
@@ -139,7 +148,7 @@ public class EyeTracker : MonoBehaviour
                     m_LockedTarget.GetComponent<Renderer>().material.SetFloat("_FirstOutlineWidth", OutlineThickness);
                 }
             }
-            //Before the check there was no locked target
+            //Before the current check there was no locked target
             if (m_LockedTarget == null)
             {
                 m_LockedTarget = ResultObject;

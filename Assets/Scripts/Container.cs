@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Will soon be omitted, replaced by ObjectManager
+/// </summary>
 public class Container : MonoBehaviour
 {
     [Header("Attributes")]

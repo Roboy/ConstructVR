@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Holds References to all GameObjects of the type Ball, will be transformed into ObjectManager in the future.
+/// </summary>
 public class BallManager : MonoBehaviour
 {
     [Header("References")]
@@ -22,6 +26,9 @@ public class BallManager : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Adds Interactable GameObjects to a reference list. Assings IDs automatically.
+    /// </summary>
     void InitializeBalls()
     {
         int id = 1;
@@ -39,7 +46,11 @@ public class BallManager : MonoBehaviour
             id++;
         }
     }
-
+    /// <summary>
+    /// Returns the GameObject by its ID.
+    /// </summary>
+    /// <param name="ID">ID of the GameObject.</param>
+    /// <returns></returns>
     public GameObject LookUpObjectByID(int ID)
     {
         if (m_InteractableObjects.ContainsKey(ID))
@@ -53,6 +64,11 @@ public class BallManager : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Used when GameObjects are removed to ensure consistency in the scenes references.
+    /// </summary>
+    /// <param name="go">Which GameObject should be removed.</param>
+    /// <param name="ID">Whats the ID of the GameObject to be removed.</param>
     public void UpdateReferences(GameObject go, int ID)
     {
         m_Balls.Remove(go);
