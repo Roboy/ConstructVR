@@ -851,7 +851,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 90
       flipNormals: 0
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -922,9 +922,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FollowSpeed: 5
   HorsePower: 25
-  ManualMode: 0
-  isAutoPiloting: 0
   AutoPilotFeature: 0
+  Counter: 0
   PathCreator: {fileID: 1560401666}
   m_Drone: {fileID: 0}
   m_DroneAnimator: {fileID: 0}

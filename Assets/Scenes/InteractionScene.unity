@@ -401,6 +401,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LowpolyNinja
       objectReference: {fileID: 0}
+    - target: {fileID: 947470756653672486, guid: fc304f0df643d724da851b985a86a795,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4286668710296377909, guid: fc304f0df643d724da851b985a86a795,
         type: 3}
       propertyPath: m_LocalPosition.x
