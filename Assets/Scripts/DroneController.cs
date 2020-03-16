@@ -123,10 +123,13 @@ public class DroneController : MonoBehaviour
         m_Z = Input.GetAxis("Vertical");
         m_DroneAnimator.SetFloat("X", m_X);
         m_DroneAnimator.SetFloat("Z", m_Z);
+        Vector3 x_temp = - m_Drone.right * m_X * HorsePower * Time.deltaTime;
+        Vector3 z_temp = - m_Drone.forward * m_Z * HorsePower * Time.deltaTime;
 
         //Move Drone
-        m_Drone.position = new Vector3(m_Drone.position.x - m_X * HorsePower * Time.deltaTime,
-                           m_Drone.position.y, m_Drone.position.z - m_Z * HorsePower * Time.deltaTime);
+        m_Drone.position = new Vector3(m_Drone.position.x + x_temp.x,
+                           m_Drone.position.y, m_Drone.position.z + z_temp.z);
+        
     }
 
     /// <summary>
