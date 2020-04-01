@@ -612,6 +612,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2061709501}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &643288177 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -232873504525979704, guid: 320b1c2af77554f99a1658df4a6d3d5c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1450597557}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &649466113 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3884189305464858143, guid: 320b1c2af77554f99a1658df4a6d3d5c,
@@ -871,7 +877,7 @@ GameObject:
   - component: {fileID: 909161636}
   - component: {fileID: 909161635}
   - component: {fileID: 909161634}
-  - component: {fileID: 909161633}
+  - component: {fileID: 909161637}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -879,20 +885,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &909161633
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909161632}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &909161634
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -954,6 +946,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &909161637
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909161632}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &909797938 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5937158223515581764, guid: fc304f0df643d724da851b985a86a795,
@@ -1447,7 +1452,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 320b1c2af77554f99a1658df4a6d3d5c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.116
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 320b1c2af77554f99a1658df4a6d3d5c,
         type: 3}
@@ -1812,6 +1817,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1692599238}
+  - component: {fileID: 1692599239}
   m_Layer: 0
   m_Name: VRDummyPlayer
   m_TagString: Untagged
@@ -1836,6 +1842,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1692599239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692599237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e933f47311b0e4ca4ecc23c302ed2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MainCamera: {fileID: 0}
 --- !u!4 &1704139928 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 35938184657497973, guid: fc304f0df643d724da851b985a86a795,
@@ -1890,12 +1909,6 @@ Transform:
   m_Father: {fileID: 1692599238}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1810220415 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -3352144429764743575, guid: 320b1c2af77554f99a1658df4a6d3d5c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1450597557}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1821882672 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1614249021745730129, guid: 320b1c2af77554f99a1658df4a6d3d5c,
@@ -2084,10 +2097,12 @@ MonoBehaviour:
   Health: 100
   HoldingTime: 1
   DropTime: 3
-  Item: {fileID: 0}
-  Hand: {fileID: 1810220415}
+  PrefabItem: {fileID: 2534432139189430452, guid: f4846932f35eae14fa97b4f9526b29ec,
+    type: 3}
+  Hand: {fileID: 643288177}
   Offset: {x: 0.0534, y: 0.0153, z: -0.008}
   m_Animator: {fileID: 0}
+  HeldItem: {fileID: 0}
 --- !u!4 &1875757192 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6448526884845150325, guid: 320b1c2af77554f99a1658df4a6d3d5c,

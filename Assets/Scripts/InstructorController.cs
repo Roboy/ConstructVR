@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InstructorController : MonoBehaviour
+public class InstructorController : Singleton<InstructorController>
 {
 
     #region PUBLIC
@@ -12,7 +12,7 @@ public class InstructorController : MonoBehaviour
     public float HoldingTime;
     [Range(0.5f, 3.0f)]
     public float DropTime;
-    public GameObject Item;
+    public GameObject PrefabItem;
     public GameObject Hand;
     public Vector3 Offset;
     #endregion
@@ -22,6 +22,8 @@ public class InstructorController : MonoBehaviour
     [Header("References")]
     [SerializeField]
     private Animator m_Animator;
+    [SerializeField]
+    private GameObject HeldItem;
     #endregion
 
     
@@ -35,18 +37,17 @@ public class InstructorController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I)) 
         {
-            ToggleWalk();    
+            if (HeldItem == null)
+            {
+                RaiseObject(PrefabItem);
+            }  
         }
 
         if (Input.GetKeyDown(KeyCode.O))
         {
-           StartCoroutine(PresentObject(Item));
+           StartCoroutine(PresentObject(PrefabItem));
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            SpawnBall();
-        }
     }
 
     void ToggleWalk() 
@@ -61,7 +62,7 @@ public class InstructorController : MonoBehaviour
 
         //Raise Arm and attach object to hold
         m_Animator.SetTrigger("RaiseObject");
-        SpawnBall();
+        SpawnItem(go);
 
         //Holding Object in place for a period of time, before dropping it
         while (CurrentTimer < HoldingTime)
@@ -73,47 +74,42 @@ public class InstructorController : MonoBehaviour
 
         //Lower Arm and initialize drop
         m_Animator.SetBool("isHoldingObject", false);
-        StartCoroutine(DetachBall());
+        DetachItem();
 
         yield return null;
 
     }
 
-    void SpawnBall() 
+    void SpawnItem(GameObject go) 
     {
-        GameObject Ball = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        Ball.transform.localScale = new Vector3(.1f, .1f, .1f);
-        Ball.transform.parent = Hand.transform;
-        Ball.transform.localPosition = Offset;
-        //Ball.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
-        Ball.transform.GetComponent<Renderer>().material.color = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
-        Item = Ball;
+        GameObject Item = GameObject.Instantiate(go, Hand.transform);
+        Item.transform.localPosition = go.GetComponent<Interactable>().PositionOffset;
+        Item.transform.Rotate(go.GetComponent<Interactable>().RotationOffset, Space.Self);
+        HeldItem = Item;
     
     }
 
+    private void RaiseObject(GameObject go) 
+    {
+        //Raise Arm and attach object to hold
+        m_Animator.SetTrigger("RaiseObject");
+        SpawnItem(go);
+        m_Animator.SetBool("isHoldingObject", true);
 
-    private IEnumerator DetachBall()
+    }
+
+    public void DetachItem()
     {
 
-        if(Item != null) 
+        if(HeldItem != null) 
         {
-            float currentTimer = 0.0f;
-            GameObject go = Item;
-            Item = null;
+            GameObject go = HeldItem;
+            HeldItem = null;
             go.transform.parent = null;
             Rigidbody rb = go.AddComponent<Rigidbody>();
             rb.useGravity = true;
-            //Collider col = Item.AddComponent<SphereCollider>();
-
-            //while(currentTimer < DropTime) 
-            //{
-            //    currentTimer += Time.deltaTime;
-            //    yield return new WaitForSeconds(Time.deltaTime);
-            //}
-
-            //Destroy(go);
         }
+        m_Animator.SetBool("isHoldingObject", false);
 
-        yield return null;
     }
 }

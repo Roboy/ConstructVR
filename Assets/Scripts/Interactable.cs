@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    [Header ("Attributes")]
+    [Header("Attributes")]
+    public bool throwable = false;
+    public Vector3 PositionOffset;
+    public Vector3 RotationOffset;
+    public Vector3 ScaleOffset;
+
     [SerializeField]
     private int m_ID;
+
 
     public int GetID()
     {
@@ -15,5 +21,10 @@ public class Interactable : MonoBehaviour
     public void SetID(int n)
     {
         m_ID = n;
+    }
+
+    public void OnGrab() 
+    {
+        InstructorController.Instance.DetachItem();
     }
 }
