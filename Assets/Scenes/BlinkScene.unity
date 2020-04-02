@@ -136,9 +136,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3042137}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &86077073 stripped
 GameObject:
@@ -175,9 +179,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 101424550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &211490546 stripped
 GameObject:
@@ -194,9 +202,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 211490546}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &240886026 stripped
 GameObject:
@@ -213,9 +225,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 240886026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &245387614
 GameObject:
@@ -394,9 +410,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 366693535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &497286325
 GameObject:
@@ -463,9 +483,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 561751960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &628900139 stripped
 GameObject:
@@ -482,9 +506,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 628900139}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &645911805 stripped
 GameObject:
@@ -501,9 +529,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 645911805}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &651196008 stripped
 GameObject:
@@ -631,9 +663,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 710829911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &740906327 stripped
 GameObject:
@@ -650,9 +686,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 740906327}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &759591639 stripped
 GameObject:
@@ -669,9 +709,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 759591639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &767057276 stripped
 GameObject:
@@ -688,9 +732,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 767057276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &963194225
 GameObject:
@@ -790,9 +838,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 981656074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &1095933464 stripped
 GameObject:
@@ -809,9 +861,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1095933464}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &1096126720 stripped
 GameObject:
@@ -828,9 +884,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1096126720}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &1134038361 stripped
 GameObject:
@@ -847,9 +907,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1134038361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &1163922552 stripped
 GameObject:
@@ -866,9 +930,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1163922552}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &1208332663 stripped
 GameObject:
@@ -885,9 +953,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1208332663}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &1221764056 stripped
 GameObject:
@@ -904,9 +976,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1221764056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &1349094733 stripped
 GameObject:
@@ -923,9 +999,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1349094733}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &1410252571 stripped
 GameObject:
@@ -942,9 +1022,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1410252571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &1448143779 stripped
 GameObject:
@@ -961,9 +1045,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1448143779}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &1553682409 stripped
 GameObject:
@@ -980,9 +1068,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1553682409}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &1627075371 stripped
 GameObject:
@@ -999,9 +1091,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1627075371}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &1668805553 stripped
 GameObject:
@@ -1018,9 +1114,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1668805553}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &1668813228 stripped
 GameObject:
@@ -1037,9 +1137,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1668813228}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &1741468225 stripped
 GameObject:
@@ -1056,9 +1160,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1741468225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &1881239619 stripped
 GameObject:
@@ -1075,9 +1183,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1881239619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &1959288409
 GameObject:
@@ -1139,9 +1251,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1969707370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &2049770022 stripped
 GameObject:
@@ -1158,9 +1274,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2049770022}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &2075356948 stripped
 GameObject:
@@ -1177,9 +1297,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2075356948}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &2100720908 stripped
 GameObject:
@@ -1196,9 +1320,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2100720908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1 &2119590002 stripped
 GameObject:
@@ -1215,9 +1343,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2119590002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bd9db9f53a28d4c897b63b308e997d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3de4ea2cdce1843488f513abf748b0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwable: 0
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationOffset: {x: 0, y: 0, z: 0}
+  ScaleOffset: {x: 0, y: 0, z: 0}
   m_ID: 0
 --- !u!1001 &8078645934910924129
 PrefabInstance:

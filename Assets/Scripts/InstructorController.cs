@@ -1,115 +1,177 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
-public class InstructorController : Singleton<InstructorController>
+namespace Construct.Interaction
 {
-
-    #region PUBLIC
-    [Header("Attributes")]
-    public float Health = 100.0f;
-    [Range(0.5f, 3.0f)]
-    public float HoldingTime;
-    [Range(0.5f, 3.0f)]
-    public float DropTime;
-    public GameObject PrefabItem;
-    public GameObject Hand;
-    public Vector3 Offset;
-    #endregion
-
-    #region PRIVATE
-    private bool m_Walking = false;
-    [Header("References")]
-    [SerializeField]
-    private Animator m_Animator;
-    [SerializeField]
-    private GameObject HeldItem;
-    #endregion
-
-    
-    void Start()
+    public class InstructorController : Singleton<InstructorController>
     {
-        m_Animator = GetComponent<Animator>();    
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.I)) 
+        #region PUBLIC
+        [Header("Attributes")]
+        public float Health = 100.0f;
+        [Range(0.5f, 3.0f)]
+        public float HoldingTime;
+        [Range(0.5f, 3.0f)]
+        public float DropTime;
+        public List<GameObject> PrefabItems;
+        public GameObject PrefabItem;
+        public bool RandomSpawn;
+        public GameObject Hand;
+        public SteamVR_Action_Boolean PresentItem;
+        public SteamVR_Input_Sources handType;
+        #endregion
+
+        #region PRIVATE
+        private bool m_Walking = false;
+        [Header("References")]
+        [SerializeField]
+        private Animator m_Animator;
+        [SerializeField]
+        private GameObject HeldItem;
+        #endregion
+
+
+        void Start()
         {
+            m_Animator = GetComponent<Animator>();
+            PresentItem.AddOnStateDownListener(TriggerDown, handType);
+        }
+
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                if (HeldItem == null)
+                {
+                    StartCoroutine(PresentObject());
+                       
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                ToggleWalk();
+            }
+
+        }
+
+        private void TriggerDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+        {
+            Debug.Log("Trigger is down");
             if (HeldItem == null)
             {
-                RaiseObject(PrefabItem);
-            }  
+                RaiseObject();
+            }
+
         }
 
-        if (Input.GetKeyDown(KeyCode.O))
+        private GameObject RandomizeItem() 
         {
-           StartCoroutine(PresentObject(PrefabItem));
+            int count = PrefabItems.Count;
+            int rand = Random.Range(0, count);
+            return PrefabItems[rand];
+        }
+        private void ToggleWalk()
+        {
+            m_Walking = !m_Walking;
+            m_Animator.SetBool("isWalking", m_Walking);
         }
 
-    }
-
-    void ToggleWalk() 
-    {
-        m_Walking = !m_Walking;
-        m_Animator.SetBool("isWalking", m_Walking);
-    }
-
-    private IEnumerator PresentObject(GameObject go) 
-    {
-        float CurrentTimer = 0.0f;
-
-        //Raise Arm and attach object to hold
-        m_Animator.SetTrigger("RaiseObject");
-        SpawnItem(go);
-
-        //Holding Object in place for a period of time, before dropping it
-        while (CurrentTimer < HoldingTime)
+        private IEnumerator PresentObject()
         {
-            CurrentTimer += Time.deltaTime;
+            float CurrentTimer = 0.0f;
+
+            //Raise Arm and attach object to hold
+            m_Animator.SetTrigger("RaiseObject");
+            SpawnItem();
+
+            //Holding Object in place for a period of time, before dropping it
+            while (CurrentTimer < HoldingTime)
+            {
+                CurrentTimer += Time.deltaTime;
+                m_Animator.SetBool("isHoldingObject", true);
+                yield return new WaitForSeconds(Time.deltaTime);
+            }
+
+            //Lower Arm and initialize drop
+            m_Animator.SetBool("isHoldingObject", false);
+            DetachItem();
+
+            yield return null;
+
+        }
+
+        private void SpawnItem()
+        {
+            
+            GameObject GO;
+            if (RandomSpawn) 
+            {
+                GO = RandomizeItem();
+            }
+            else
+            {
+                GO = PrefabItem;
+            }
+
+            GameObject Item = GameObject.Instantiate(GO, Hand.transform);
+            Item.transform.localPosition = GO.GetComponent<InteractableCustom>().PositionOffset;
+            Item.transform.Rotate(GO.GetComponent<InteractableCustom>().RotationOffset, Space.Self);
+            HeldItem = Item;
+
+        }
+
+        private void RaiseObject()
+        {
+            //Raise Arm and attach object to hold
+            m_Animator.SetTrigger("RaiseObject");
+            SpawnItem();
             m_Animator.SetBool("isHoldingObject", true);
-            yield return new WaitForSeconds(Time.deltaTime);
+
         }
 
-        //Lower Arm and initialize drop
-        m_Animator.SetBool("isHoldingObject", false);
-        DetachItem();
-
-        yield return null;
-
-    }
-
-    void SpawnItem(GameObject go) 
-    {
-        GameObject Item = GameObject.Instantiate(go, Hand.transform);
-        Item.transform.localPosition = go.GetComponent<Interactable>().PositionOffset;
-        Item.transform.Rotate(go.GetComponent<Interactable>().RotationOffset, Space.Self);
-        HeldItem = Item;
-    
-    }
-
-    private void RaiseObject(GameObject go) 
-    {
-        //Raise Arm and attach object to hold
-        m_Animator.SetTrigger("RaiseObject");
-        SpawnItem(go);
-        m_Animator.SetBool("isHoldingObject", true);
-
-    }
-
-    public void DetachItem()
-    {
-
-        if(HeldItem != null) 
+        private void RaiseArm() 
         {
-            GameObject go = HeldItem;
-            HeldItem = null;
-            go.transform.parent = null;
-            Rigidbody rb = go.AddComponent<Rigidbody>();
-            rb.useGravity = true;
+            m_Animator.SetTrigger("RaiseObject");
+            m_Animator.SetBool("isHoldingObject", true);
         }
-        m_Animator.SetBool("isHoldingObject", false);
 
+        private void LowerArm() 
+        {
+            m_Animator.SetBool("isHoldingObject", false);
+        }
+
+        private void DetachItem()
+        {
+
+            if (HeldItem != null)
+            {
+                GameObject go = HeldItem;
+                HeldItem = null;
+                go.transform.parent = null;
+                Rigidbody rb = go.GetComponent<Rigidbody>();
+                rb.isKinematic = false;
+                rb.useGravity = true;
+            }
+
+        }
+
+        public void ReceiveTask(int ID)
+        {
+
+            switch (ID)
+            {
+                case 0:
+                    LowerArm();
+                    break;
+                case 1:
+                    DetachItem();
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
