@@ -78,7 +78,7 @@ public class LineRendererController : Singleton<LineRendererController>
     private Vector3 CalculateVector(Vector3 origin, Vector3 target)
     {
         Vector3 result = Vector3.zero;
-        result = origin + target;
+        result = target - origin;
 
         if (NormalizedVector)
         {
