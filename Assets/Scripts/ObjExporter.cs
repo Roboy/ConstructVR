@@ -1,3 +1,7 @@
+﻿using UnityEngine;
+using UnityEditor;
+using System.Collections;
+using System.IO;
 using System.Text;
 
 public class ObjExporterScript
