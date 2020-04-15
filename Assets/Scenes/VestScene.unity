@@ -216,6 +216,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[bHapticsManager]'
       objectReference: {fileID: 0}
+    - target: {fileID: 117078, guid: 6b04d793cc1f3b34dbcc334ac23a3d96, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 174408, guid: 6b04d793cc1f3b34dbcc334ac23a3d96, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 184644, guid: 6b04d793cc1f3b34dbcc334ac23a3d96, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -274,6 +282,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11490432, guid: 6b04d793cc1f3b34dbcc334ac23a3d96, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205401148094524, guid: 6b04d793cc1f3b34dbcc334ac23a3d96, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405147331951322, guid: 6b04d793cc1f3b34dbcc334ac23a3d96, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523386662189120, guid: 6b04d793cc1f3b34dbcc334ac23a3d96, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114586838983339496, guid: 6b04d793cc1f3b34dbcc334ac23a3d96,

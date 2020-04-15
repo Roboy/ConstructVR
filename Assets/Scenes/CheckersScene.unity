@@ -495,10 +495,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: CheckersTable
       objectReference: {fileID: 0}
-    - target: {fileID: 6366796127778134579, guid: 94579002dc1698c4b80497cbcd08fa06,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94579002dc1698c4b80497cbcd08fa06, type: 3}

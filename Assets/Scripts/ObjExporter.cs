@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿//from https://gist.github.com/MattRix/0522c27ee44c0fbbdf76d65de123eeff
+using UnityEngine;
 using UnityEditor;
 using System.Collections;
 using System.IO;
