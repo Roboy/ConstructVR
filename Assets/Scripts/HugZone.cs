@@ -5,6 +5,9 @@ using Bhaptics.Tact.Unity;
 
 namespace Construct.Hugs
 {
+    /// <summary>
+    /// Validates if a player body part is located correctly so that a hug event can take place.
+    /// </summary>
     public class HugZone : MonoBehaviour
     {
         [Header("Attributes")]
@@ -17,9 +20,12 @@ namespace Construct.Hugs
         [SerializeField]
         private float m_MaxDistance = -1.0f;
 
-        
 
 
+        /// <summary>
+        /// Player body part enters HugZone.
+        /// </summary>
+        /// <param name="other">The player body part.</param>
         private void OnTriggerEnter(Collider other)
         {
             
@@ -27,11 +33,14 @@ namespace Construct.Hugs
             {
                 m_MatchSuccess = true;
                 m_MaxDistance = other.transform.position.z - transform.position.z;
-                ProcessDistance(other);
+                HugManager.Instance.CheckForHug();
             }
-            HugManager.Instance.CheckForHug();
+            
         }
-
+        /// <summary>
+        /// Player body part resides inside HugZone, triggers calculation of distance and results.
+        /// </summary>
+        /// <param name="other"></param>
         private void OnTriggerStay(Collider other)
         {
             if (other.transform.tag == MatchAgainst) 
@@ -40,22 +49,33 @@ namespace Construct.Hugs
             }
         }
 
+        /// <summary>
+        /// Player body part exits the HugZone.
+        /// </summary>
+        /// <param name="other">The player body part.</param>
         private void OnTriggerExit(Collider other)
         {
             
             if (other.transform.tag == MatchAgainst)
             {
                 m_MatchSuccess = false;
+                m_MaxDistance = -1.0f;
                 m_DistanceToBodyPart = -1.0f;
-                ProcessDistance(other);
             }
         }
-
+        /// <summary>
+        /// Returns whether zone is occupied correctly or not.
+        /// </summary>
+        /// <returns>Success of Zone</returns>
         public bool CheckSuccess()
         {
             return m_MatchSuccess;
         }
 
+        /// <summary>
+        /// Calculates intensity of tactile feedback with regard to distance towards touched target.
+        /// </summary>
+        /// <param name="other">The player body part.</param>
         private void ProcessDistance(Collider other)
         {
             //Only continue if TactSource is a file

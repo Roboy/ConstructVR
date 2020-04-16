@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Floor
+  - Shooes
+  - HugFront
+  - HugBack
   layers:
   - Default
   - TransparentFX
