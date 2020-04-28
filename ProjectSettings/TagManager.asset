@@ -8,6 +8,7 @@ TagManager:
   - Shooes
   - HugFront
   - HugBack
+  - BulletBridge
   layers:
   - Default
   - TransparentFX
