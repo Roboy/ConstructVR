@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BlinkUnit
   m_EditorClassIdentifier: 
   title: BlinkUnit
+  spawnpoint: {x: 2, y: 0, z: 3}
   trainingObjects:
   - {fileID: 4039188111517812315, guid: 8f2afc080790ca748a90992772dd9ce4, type: 3}
   - {fileID: 6217568929889641692, guid: e8d894f09eb4cc54c8c7eaf4e32c5d89, type: 3}

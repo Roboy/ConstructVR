@@ -8,6 +8,7 @@ namespace Construct.Utilities
     public class TrainingUnit : ScriptableObject
     {
         public string title;
+        public Vector3 spawnpoint;
         public List<GameObject> trainingObjects;
     }
 }

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: VestUnit
   m_EditorClassIdentifier: 
   title: VestUnit
+  spawnpoint: {x: 2, y: 0, z: 2}
   trainingObjects:
   - {fileID: 1099591008626644003, guid: 397f69c133ebf47448a15430929f99d5, type: 3}

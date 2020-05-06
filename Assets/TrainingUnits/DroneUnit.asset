@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: DroneUnit
   m_EditorClassIdentifier: 
   title: DroneUnit
+  spawnpoint: {x: 1, y: 0, z: 1}
   trainingObjects:
   - {fileID: 2035684674557178063, guid: 248071d309094354885db3df74340282, type: 3}

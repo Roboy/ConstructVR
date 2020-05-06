@@ -15,10 +15,13 @@ namespace Construct.Utilities
         [Header("References")]
         public GameObject prefab_RoboyModel;
         public GameObject prefab_BulletBridge;
+        public List<GameObject> anchoredObjects;
         [Header("Units")]
         public string currentTitle;
         public TrainingUnit currentTrainingUnit;
         public List<TrainingUnit> trainingUnits;
+        [SerializeField]
+        private bool ObjectLock = false;
 
         private void Start()
         {
@@ -34,6 +37,7 @@ namespace Construct.Utilities
             if (!operatorCalibrated)
             {
                 CalibrateOperator();
+                //return;
             }
 
             if (Input.GetKeyDown(KeyCode.J))
@@ -71,6 +75,9 @@ namespace Construct.Utilities
             currentTrainingUnit = trainingUnits[nextUnitID];
             currentTitle = currentTrainingUnit.title;
             Debug.Log(nextUnitID);
+            ObjectLock = true;
+            DeSpawnTrainingObjects();
+            SpawnTrainingObjects();
             trainingUnitSwitching = false;
         }
 
@@ -93,6 +100,9 @@ namespace Construct.Utilities
             currentTrainingUnit = trainingUnits[nextUnitID];
             currentTitle = currentTrainingUnit.title;
             Debug.Log(nextUnitID);
+            ObjectLock = true;
+            DeSpawnTrainingObjects();
+            SpawnTrainingObjects();
             trainingUnitSwitching = false;
         }
 
@@ -103,16 +113,49 @@ namespace Construct.Utilities
             currentUnitCompleted = false;
         }
 
+        /// <summary>
+        /// Spawn new training objects, register as anchored objects.
+        /// </summary>
         private void SpawnTrainingObjects() 
         {
-            //Spawn Objects at offsets regarding origin point
-            //Register spawned objects with manager
-        }
+            //wait for despawn to complete, i.e. despawn sets lock to false
+            while (ObjectLock) 
+            {
+                Debug.Log("Spawner is waiting for lock..");
+            }
 
+            //Let the spawning begin, objects are parented to an anchor
+            GameObject anchor = new GameObject("Anchor/" + currentTitle);
+            anchor.transform.position = currentTrainingUnit.spawnpoint;
+            anchoredObjects.Add(anchor);
+
+            //Spawn and register training objects
+            List<GameObject> ObjectsToSpawn = currentTrainingUnit.trainingObjects;
+            if (ObjectsToSpawn.Count > 0) 
+            {
+                foreach (GameObject go in ObjectsToSpawn)
+                {
+                    GameObject obj = Instantiate(go, anchor.transform);
+                    anchoredObjects.Add(obj);
+                }
+            }
+        }
+        /// <summary>
+        /// Destroy anchored Objects, update references.
+        /// </summary>
         private void DeSpawnTrainingObjects()
         {
-            //Remove references (update references)
-            //Destroy GameObjects (spawned objects)
+            foreach (GameObject obj in anchoredObjects) 
+            {
+                Destroy(obj);
+            }
+
+            //Flush list of anchored objects
+            anchoredObjects.Clear();
+            //TODO use to lists to determine which items to keep and which not
+            //use property like keepit or flushit
+
+            ObjectLock = false;
         }
     }
 }
