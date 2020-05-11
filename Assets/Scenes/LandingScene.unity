@@ -238,12 +238,24 @@ MonoBehaviour:
   currentUnitCompleted: 0
   prefab_RoboyModel: {fileID: 0}
   prefab_BulletBridge: {fileID: 0}
+  anchoredObjects: []
   currentTitle: 
   currentTrainingUnit: {fileID: 0}
   trainingUnits:
   - {fileID: 11400000, guid: f2784ce341da9a746a913974f395154a, type: 2}
   - {fileID: 11400000, guid: d40f86cf92d0ab246a2dde720b6adbd4, type: 2}
   - {fileID: 11400000, guid: 4acd27c0f0ebb464c8213b7185ae4773, type: 2}
+  ObjectLock: 0
+  availableScenes:
+  - {fileID: 102900000, guid: 2c84e40cb75f83c4cae54592be43c293, type: 3}
+  - {fileID: 102900000, guid: 05a0d99a30ebd93469bcd55d822791ed, type: 3}
+  - {fileID: 102900000, guid: 0e9560473ed736c408f9dafdb1c7da8a, type: 3}
+  loadedScenes: []
+  SceneToLoad: {fileID: 102900000, guid: 05a0d99a30ebd93469bcd55d822791ed, type: 3}
+  LatestAddedScene: {fileID: 0}
+  scenePath: Assets/Scenes/
+  sceneExtension: .unity
+  SceneLock: 0
 --- !u!4 &1275067883
 Transform:
   m_ObjectHideFlags: 0
