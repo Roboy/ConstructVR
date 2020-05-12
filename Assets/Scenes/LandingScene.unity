@@ -250,9 +250,9 @@ MonoBehaviour:
   - {fileID: 102900000, guid: 2c84e40cb75f83c4cae54592be43c293, type: 3}
   - {fileID: 102900000, guid: 05a0d99a30ebd93469bcd55d822791ed, type: 3}
   - {fileID: 102900000, guid: 0e9560473ed736c408f9dafdb1c7da8a, type: 3}
-  loadedScenes: []
-  SceneToLoad: {fileID: 102900000, guid: 05a0d99a30ebd93469bcd55d822791ed, type: 3}
+  SceneToLoad: {fileID: 0}
   LatestAddedScene: {fileID: 0}
+  loadedScenes: []
   scenePath: Assets/Scenes/
   sceneExtension: .unity
   SceneLock: 0
