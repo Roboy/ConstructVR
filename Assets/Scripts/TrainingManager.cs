@@ -55,16 +55,19 @@ namespace Construct.Utilities
                 //return;
             }
 
+            //Go to previous Unit, Scene
             if (Input.GetKeyDown(KeyCode.J))
             {
-                //LoadPreviousTrainingUnit();
-                StartCoroutine(UnloadScene(SceneToLoad));
+                //LoadPreviousTrainingUnit();            
+                StartCoroutine(UnloadScene(LatestAddedScene));
             }
 
+            //Go to next Unit, Scene
             if (Input.GetKeyDown(KeyCode.L))
             {
                 //LoadNextTrainingUnit();
-                StartCoroutine(LoadScene(SceneToLoad));
+                SceneAsset nextScene = DetermineSuccessorScene();
+                StartCoroutine(LoadScene(nextScene));
             }
 
             if (Input.GetKeyDown(KeyCode.K))
@@ -184,7 +187,10 @@ namespace Construct.Utilities
         #region SceneManagement
         IEnumerator LoadScene(SceneAsset scene)
         {
-            
+            if (scene == null)
+            {
+                yield break;
+            }
 
             if (CheckSceneLoadingStatus(scene))
             {
@@ -211,6 +217,11 @@ namespace Construct.Utilities
 
         IEnumerator UnloadScene(SceneAsset scene)
         {
+            if (scene == null)
+            {
+                yield break;
+            }
+
             if (!CheckSceneLoadingStatus(scene))
             {
                 Debug.Log(scene.name + " is already unloaded!");
@@ -285,6 +296,49 @@ namespace Construct.Utilities
 
             Scene latest = SceneManager.GetSceneAt(count - 1);
             LatestAddedScene = availableScenes.Find(x => x.name == latest.name);
+        }
+
+        private SceneAsset DeterminePredecessorScene() 
+        {
+            //Case: no scene loaded
+            if (LatestAddedScene == null)
+            { 
+                return null; 
+            }
+
+            SceneAsset latest = LatestAddedScene;
+            int indexLatest = availableScenes.IndexOf(latest);
+
+            //Case: one scene loaded
+            if (indexLatest == 0)
+            {
+                return latest;
+            }
+
+            //Case: multiple scenes loaded
+            return availableScenes[indexLatest - 1];
+        }
+
+        private SceneAsset DetermineSuccessorScene() 
+        {
+            //Case: no scene loaded
+            if (LatestAddedScene == null)
+            {
+                return availableScenes[0];
+            }
+
+            SceneAsset latest = LatestAddedScene;
+            int indexLatest = availableScenes.IndexOf(latest);
+
+            //Case: all scenes loaded
+            if (indexLatest == availableScenes.Count - 1)
+            {
+                return null;
+            }
+
+            //Case: multiple scenes loaded
+            return availableScenes[indexLatest + 1];
+
         }
 
         private bool CheckForSceneLock() 

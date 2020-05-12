@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CheckersScene.unity
     guid: 05a0d99a30ebd93469bcd55d822791ed
+  - enabled: 1
+    path: Assets/Scenes/HugScene.unity
+    guid: 0e9560473ed736c408f9dafdb1c7da8a
   m_configObjects: {}
