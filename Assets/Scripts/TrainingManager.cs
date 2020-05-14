@@ -185,6 +185,11 @@ namespace Construct.Utilities
         #endregion
 
         #region SceneManagement
+        /// <summary>
+        /// Loads a scene asynchronously and additive.
+        /// </summary>
+        /// <param name="scene">The scene that will be loaded.</param>
+        /// <returns></returns>
         IEnumerator LoadScene(SceneAsset scene)
         {
             if (scene == null)
@@ -215,6 +220,11 @@ namespace Construct.Utilities
 
         }
 
+        /// <summary>
+        /// Unloads a scene asynchronously.
+        /// </summary>
+        /// <param name="scene">The scene that will be unloaded.</param>
+        /// <returns></returns>
         IEnumerator UnloadScene(SceneAsset scene)
         {
             if (scene == null)
@@ -267,7 +277,10 @@ namespace Construct.Utilities
 
             return result;
         }
-
+        /// <summary>
+        /// When a scene is done loading, it is referenced and set as the latest scene entry.
+        /// </summary>
+        /// <param name="scene">The scene which finished loading.</param>
         private void OnSceneLoaded(SceneAsset scene)
         {
             loadedScenes.Add(scene);
@@ -276,7 +289,10 @@ namespace Construct.Utilities
             SceneLock = false;
 
         }
-
+        /// <summary>
+        /// When a scene is done unloading, it is dereferenced and its predecessor is set as the latest scene entry.
+        /// </summary>
+        /// <param name="scene">The scene which finished unloading.</param>
         private void OnSceneUnloaded(SceneAsset scene)
         {
             loadedScenes.Remove(scene);
@@ -285,6 +301,9 @@ namespace Construct.Utilities
             SceneLock = false;
         }
 
+        /// <summary>
+        /// Called after loading or unloading a scene in order to update the latest scene reference.
+        /// </summary>
         private void UpdateLatestSceneEntry() 
         {
             int count = SceneManager.sceneCount;
@@ -298,6 +317,10 @@ namespace Construct.Utilities
             LatestAddedScene = availableScenes.Find(x => x.name == latest.name);
         }
 
+        /// <summary>
+        /// Looks for the scene that was loaded prior to the latest scene.
+        /// </summary>
+        /// <returns></returns>
         private SceneAsset DeterminePredecessorScene() 
         {
             //Case: no scene loaded
@@ -319,6 +342,10 @@ namespace Construct.Utilities
             return availableScenes[indexLatest - 1];
         }
 
+        /// <summary>
+        /// Looks for the scene that would be loaded after the latest scene.
+        /// </summary>
+        /// <returns></returns>
         private SceneAsset DetermineSuccessorScene() 
         {
             //Case: no scene loaded
@@ -341,6 +368,10 @@ namespace Construct.Utilities
 
         }
 
+        /// <summary>
+        /// Used to check if the scene lock is active or not.
+        /// </summary>
+        /// <returns>Returns false if scene lock can not be acquired, true if it can.</returns>
         private bool CheckForSceneLock() 
         {
             if (SceneLock) 
