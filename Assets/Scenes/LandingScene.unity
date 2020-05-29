@@ -121,6 +121,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &171441709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 171441710}
+  - component: {fileID: 171441711}
+  m_Layer: 0
+  m_Name: InstructionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &171441710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171441709}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.202, z: 3.051}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &171441711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171441709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 066c11164322f0b4c937ac0459e4777f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentInstructionSet: {fileID: 0}
+  currentInstructionList: []
+  currentInstruction: {fileID: 0}
+  instructionTag: InstructionSet
 --- !u!1 &747299170
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +193,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747299170}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &747299172
 Camera:
   m_ObjectHideFlags: 0
@@ -246,6 +293,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d40f86cf92d0ab246a2dde720b6adbd4, type: 2}
   - {fileID: 11400000, guid: 4acd27c0f0ebb464c8213b7185ae4773, type: 2}
   ObjectLock: 0
+  currentInstructionSet: []
+  currentInstruction: {fileID: 0}
+  instructionTag: InstructionSet
   availableScenes:
   - {fileID: 102900000, guid: 2c84e40cb75f83c4cae54592be43c293, type: 3}
   - {fileID: 102900000, guid: 05a0d99a30ebd93469bcd55d822791ed, type: 3}

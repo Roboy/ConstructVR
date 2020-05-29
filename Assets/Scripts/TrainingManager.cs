@@ -12,7 +12,7 @@ namespace Construct.Utilities
     {
         [Header("Attributes")]
         public bool operatorCalibrated = false;
-        //used to avoid nullpointers, e.g. when roboy is reference training objects
+        //used to avoid nullpointers, e.g. when roboy holds a reference to training objects
         public bool trainingUnitSwitching = false;
         public bool currentUnitCompleted = false;
         [Header("References")]
@@ -27,7 +27,6 @@ namespace Construct.Utilities
         private bool ObjectLock = false;
         [Header("Scenes")]
         public List<SceneAsset> availableScenes;
-        public SceneAsset SceneToLoad;
         public SceneAsset LatestAddedScene;
         public List<SceneAsset> loadedScenes;
         [Header("Files")]
@@ -310,11 +309,14 @@ namespace Construct.Utilities
             if (count == 1) 
             {
                 LatestAddedScene = null;
+                InstructionManager.Instance.UpdateReferences();
                 return;
             }
 
             Scene latest = SceneManager.GetSceneAt(count - 1);
             LatestAddedScene = availableScenes.Find(x => x.name == latest.name);
+
+            InstructionManager.Instance.UpdateReferences(latest);
         }
 
         /// <summary>

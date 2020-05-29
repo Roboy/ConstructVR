@@ -9,6 +9,7 @@ TagManager:
   - HugFront
   - HugBack
   - BulletBridge
+  - InstructionSet
   layers:
   - Default
   - TransparentFX

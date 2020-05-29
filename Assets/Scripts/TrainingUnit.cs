@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Construct.Utilities
 {
-    [CreateAssetMenu(fileName = "Unit", menuName = "ScriptableObjects/Training", order = 1)]
+    [CreateAssetMenu(fileName = "Unit", menuName = "Training/Unit", order = 2)]
     public class TrainingUnit : ScriptableObject
     {
         public string title;
