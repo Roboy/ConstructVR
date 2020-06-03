@@ -23,7 +23,7 @@ namespace Construct.Utilities
         [ConditionalField("type", false, InstructionType.TXT), TextArea]
         public string text;
         [ConditionalField("type", false, InstructionType.PIC)]
-        public Texture picture;
+        public Sprite picture;
         [ConditionalField("type", false, InstructionType.AUD)]
         public AudioClip audio;
         [ConditionalField("type", false, InstructionType.VID)]

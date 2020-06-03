@@ -1,7 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
+using UnityEngine.Video;
 
 namespace Construct.Utilities
 {
@@ -13,6 +17,32 @@ namespace Construct.Utilities
         public List<Instruction> currentInstructionList;
         public Instruction currentInstruction;
         public string instructionTag;
+
+        [Header("References")]
+        public UnityEngine.UI.Image ImagePlane;
+        public TextMeshProUGUI TextField;
+        public AudioSource AudioPlayer;
+        public VideoPlayer VideoPlayer;
+        public Material RenderTextureMaterial;
+        public Sprite AudioPlayingSymbol;
+
+        private void Start()
+        {
+            CleanInstructionPanels();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Q)) 
+            {
+                PlayPreviousInstruction();
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                PlayNextInstruction();
+            }
+        }
 
         /// <summary>
         /// With no arguments it resets all instruction references to null.
@@ -49,6 +79,7 @@ namespace Construct.Utilities
                 UpdateReferences();
             }
 
+            SetInstructionPanels(currentInstruction);
         }
 
         public void PlayNextInstruction() 
@@ -59,6 +90,9 @@ namespace Construct.Utilities
             }
 
             currentInstruction = currentInstructionSet.LoadNextInstruction();
+            CleanInstructionPanels();
+            SetInstructionPanels(currentInstruction);
+            
         }
         public void PlayPreviousInstruction() 
         {
@@ -66,7 +100,10 @@ namespace Construct.Utilities
             {
                 return;
             }
+
             currentInstruction = currentInstructionSet.LoadPreviousInstruction();
+            CleanInstructionPanels();
+            SetInstructionPanels(currentInstruction);
         }
         public void ReplaytInstruction() 
         {
@@ -76,6 +113,70 @@ namespace Construct.Utilities
             }
 
             currentInstruction = currentInstructionSet.ReloadCurrentInstruction();
+            CleanInstructionPanels();
+            SetInstructionPanels(currentInstruction);
+        }
+
+        /// <summary>
+        /// Resets all instruction interfaces, stops playback of instruction media.
+        /// </summary>
+        public void CleanInstructionPanels() 
+        {
+            //Reset Text
+            TextField.text = "";
+            //Reset Image
+            ImagePlane.sprite = null;
+            //Reset Audio
+            AudioPlayer.Stop();
+            AudioPlayer.clip = null;
+            //Reset Video
+            ImagePlane.material = null;
+            VideoPlayer.Stop();
+            VideoPlayer.clip = null;
+        }
+
+        /// <summary>
+        /// Fills intruction interfaces based on type of instruction, starts playback where necessary.
+        /// </summary>
+        /// <param name="input">Instruction to be displayed or media to be played.</param>
+        public void SetInstructionPanels(Instruction input) 
+        {
+            if (input == null)
+                return;
+
+            InstructionType InputType = input.type;
+
+            if (InputType == InstructionType.TXT) 
+            {
+                TextField.text = input.text;
+                return;
+            }
+            if (InputType == InstructionType.PIC)
+            {
+                ImagePlane.sprite = input.picture;
+                return;
+            }
+            if (InputType == InstructionType.AUD)
+            {
+                ImagePlane.sprite = AudioPlayingSymbol;
+                AudioPlayer.clip = input.audio;
+                AudioPlayer.Play();
+            }
+            if (InputType == InstructionType.VID)
+            {
+                ImagePlane.material = RenderTextureMaterial;
+                VideoPlayer.clip = input.video as VideoClip;
+                VideoPlayer.Play();
+            }
+
+        }
+
+        public void ResetInstructions() 
+        {
+            if (currentInstructionSet != null)
+            {
+                currentInstructionSet.ResetInstructions();
+            }
         }
 
 

@@ -36,7 +36,7 @@ namespace Construct.Utilities
             }
 
             //Regular case, increase pointer by one
-            int nextIndex = currentIndex++;
+            int nextIndex = currentIndex + 1;
             result = inputList[nextIndex];
             return result;
         }
@@ -68,7 +68,7 @@ namespace Construct.Utilities
             }
 
             //Regular case, decrease pointer by one
-            int previousIndex = currentIndex--;
+            int previousIndex = currentIndex - 1;
             result = inputList[previousIndex];
             return result;
 

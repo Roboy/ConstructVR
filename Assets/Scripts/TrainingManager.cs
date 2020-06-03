@@ -191,6 +191,7 @@ namespace Construct.Utilities
         /// <returns></returns>
         IEnumerator LoadScene(SceneAsset scene)
         {
+            
             if (scene == null)
             {
                 yield break;
@@ -208,6 +209,8 @@ namespace Construct.Utilities
                 yield break;
             }
 
+            InstructionManager.Instance.CleanInstructionPanels();
+            InstructionManager.Instance.ResetInstructions();
             string pathToSceneAsset = scenePath + scene.name + sceneExtension;
             int indexSceneToLoad = SceneUtility.GetBuildIndexByScenePath(pathToSceneAsset);
             AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(indexSceneToLoad, LoadSceneMode.Additive);
@@ -226,6 +229,7 @@ namespace Construct.Utilities
         /// <returns></returns>
         IEnumerator UnloadScene(SceneAsset scene)
         {
+
             if (scene == null)
             {
                 yield break;
@@ -243,6 +247,8 @@ namespace Construct.Utilities
                 yield break;
             }
 
+            InstructionManager.Instance.CleanInstructionPanels();
+            InstructionManager.Instance.ResetInstructions();
             string pathToSceneAsset = scenePath + scene.name + sceneExtension;
             int indexSceneToUnload = SceneUtility.GetBuildIndexByScenePath(pathToSceneAsset);
             AsyncOperation asyncOperation = SceneManager.UnloadSceneAsync(indexSceneToUnload, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
@@ -317,6 +323,7 @@ namespace Construct.Utilities
             LatestAddedScene = availableScenes.Find(x => x.name == latest.name);
 
             InstructionManager.Instance.UpdateReferences(latest);
+           
         }
 
         /// <summary>

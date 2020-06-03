@@ -262,6 +262,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1b9c0d6a2570019408b0d04a4aecacd4, type: 2}
   - {fileID: 11400000, guid: 0cc1217caf5012247a716b196e728e97, type: 2}
   - {fileID: 11400000, guid: 594224861d907854292ef6a404662f56, type: 2}
+  - {fileID: 11400000, guid: 54dc450c05cf24441863e5d2b02a8268, type: 2}
+  - {fileID: 11400000, guid: aacd5651c4745ff47be3552f11f10a3a, type: 2}
+  - {fileID: 11400000, guid: 2e10f202170616d40ab0144d64f0370e, type: 2}
   currentInstruction: {fileID: 0}
 --- !u!4 &1255457490 stripped
 Transform:

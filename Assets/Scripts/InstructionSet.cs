@@ -27,7 +27,7 @@ namespace Construct.Utilities
 
         public Instruction LoadNextInstruction() 
         {
-           currentInstruction =  DataStructHelper.nextElementInList<Instruction>(Instructions, currentInstruction);
+            currentInstruction =  DataStructHelper.nextElementInList<Instruction>(Instructions, currentInstruction);
             return currentInstruction;
         }
         public Instruction LoadPreviousInstruction() 
@@ -38,8 +38,13 @@ namespace Construct.Utilities
         public Instruction ReloadCurrentInstruction() 
         {
             //Obsolete, TODO replay/display again instruction
-            //currentInstruction = currentInstruction;
+            //currentInstruction = Instructions[0];
             return currentInstruction;
+        }
+
+        public void ResetInstructions() 
+        {
+            currentInstruction = Instructions[0];
         }
 
     }
