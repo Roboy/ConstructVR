@@ -1,10 +1,14 @@
-﻿//from https://gist.github.com/MattRix/0522c27ee44c0fbbdf76d65de123eeff
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
 using System.Collections;
 using System.IO;
 using System.Text;
 
+
+/// <summary>
+/// Exports meshes to .obj files.
+/// from https://gist.github.com/MattRix/0522c27ee44c0fbbdf76d65de123eeff
+/// </summary>
 public class ObjExporterScript
 {
 	private static int StartIndex = 0;

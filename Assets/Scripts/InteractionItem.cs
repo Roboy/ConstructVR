@@ -6,6 +6,9 @@ using Valve.VR.InteractionSystem;
 
 namespace Construct.Interaction
 {
+    /// <summary>
+    /// Trimmed, custom version of the 'Throwable' script within SteamVR.
+    /// </summary>
     [RequireComponent(typeof(Interactable))]
     [RequireComponent(typeof(Rigidbody))]
     public class InteractionItem : MonoBehaviour

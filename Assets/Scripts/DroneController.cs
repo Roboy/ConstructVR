@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using PathCreation;
 
+/// <summary>
+/// Controls the drone gameobject. Drone can be either manually controlled or 
+/// set to autopilot where it follows a given path.
+/// </summary>
 public class DroneController : MonoBehaviour
 {
 
@@ -50,25 +54,23 @@ public class DroneController : MonoBehaviour
     [SerializeField]
     private float m_Z;
 
+    private bool m_initialised = false;
+
     #endregion
 
-    // Start is called before the first frame update
     void Awake()
     {
-        m_Drone = GetComponent<Transform>();
-        m_DroneAnimator = GetComponent<Animator>();
-        m_InitRotation = transform.rotation;
-        m_LoadingComplete = true;
-
-        //Set drone status to idle
-        m_TiltingLeft = false;
-        m_TiltingRight = false;
-        m_TiltingForward = false;
-        m_TiltingBackward = false;
+        Initialise();
     }
 
     void Update()
     {
+        if (!m_initialised) 
+        {
+            Initialise();
+            return;        
+        }
+
         //Switch between modes
         if (Input.GetKeyDown(KeyCode.I))
         {
@@ -99,6 +101,22 @@ public class DroneController : MonoBehaviour
             m_RotationIncomplete = false;
 
         }
+    }
+
+    private void Initialise() 
+    {
+        m_Drone = GetComponent<Transform>();
+        m_DroneAnimator = GetComponent<Animator>();
+        m_InitRotation = transform.rotation;
+        m_LoadingComplete = true;
+
+        //Set drone status to idle
+        m_TiltingLeft = false;
+        m_TiltingRight = false;
+        m_TiltingForward = false;
+        m_TiltingBackward = false;
+
+        m_initialised = true;
     }
 
     //Called when variable in editor has changed

@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 
 namespace Construct.Utilities
 {
+ /// <summary>
+ /// Manager to load/unload scenes and training units.
+ /// </summary>
     public class TrainingManager : Singleton<TrainingManager>
     {
         [Header("Attributes")]
@@ -71,7 +74,7 @@ namespace Construct.Utilities
 
             if (Input.GetKeyDown(KeyCode.K))
             {
-
+                //Reload Scene
             }
         }
 

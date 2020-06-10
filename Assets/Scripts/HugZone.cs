@@ -10,6 +10,7 @@ namespace Construct.Hugs
     /// </summary>
     public class HugZone : MonoBehaviour
     {
+        #region VAR
         [Header("Attributes")]
         public bool TriggerTacFeedback = true;
         public string MatchAgainst = "default";
@@ -19,7 +20,7 @@ namespace Construct.Hugs
         private float m_DistanceToBodyPart = -1.0f;
         [SerializeField]
         private float m_MaxDistance = -1.0f;
-
+        #endregion
 
 
         /// <summary>

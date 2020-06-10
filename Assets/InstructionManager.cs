@@ -9,7 +9,10 @@ using UnityEngine.Video;
 
 namespace Construct.Utilities
 {
-
+    /// <summary>
+    /// Manages the loading/reloading of instructions.
+    /// Instructions guide the operator through training.
+    /// </summary>
     public class InstructionManager : Singleton<InstructionManager>
     {
         [Header("Instructions")]
@@ -33,11 +36,13 @@ namespace Construct.Utilities
 
         private void Update()
         {
+            //Play previous instruction
             if (Input.GetKeyDown(KeyCode.Q)) 
             {
                 PlayPreviousInstruction();
             }
 
+            //Play next instruction
             if (Input.GetKeyDown(KeyCode.E))
             {
                 PlayNextInstruction();

@@ -5,12 +5,16 @@ using UnityEngine;
 
 namespace Construct.Utilities
 {
+    /// <summary>
+    /// Keeps track of instructions that belong to one scene/training unit.
+    /// </summary>
     public class InstructionSet : MonoBehaviour
     {
+        #region VAR
         public List<Instruction> Instructions;
 
         public Instruction currentInstruction;
-
+        #endregion
 
         private void Start()
         {

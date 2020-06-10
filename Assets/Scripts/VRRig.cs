@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/// <summary>
+/// Maps movement of tracked object towards a avatar body part. 
+/// </summary>
 [System.Serializable]
 public class VRMap 
 {

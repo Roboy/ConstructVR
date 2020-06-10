@@ -10,10 +10,12 @@ namespace Construct.Hugs
     /// </summary>
     public class HugManager : Singleton<HugManager>
     {
+        #region VAR
         public List<HugZone> HugZones;
 
         [SerializeField]
         private bool m_Hugged = false;
+        #endregion
 
         /// <summary>
         /// If all single HugZones are valid, a hug event is possible.

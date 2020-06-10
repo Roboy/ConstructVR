@@ -38,13 +38,17 @@ namespace Construct.Interaction
 
         void Start()
         {
-            m_MainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+            if( GameObject.FindGameObjectWithTag("MainCamera") == null) 
+            {
+                m_MainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+            }
+            
         }
 
 
         void Update()
         {
-            //Eye tracking position will replace this
+            //Workaround for now, eye tracking position will replace this
             m_MousePosition = Input.mousePosition;
 
             if (m_LookingForTarget == false)
@@ -58,30 +62,7 @@ namespace Construct.Interaction
             //This action removes the locked target gameObject and leaves a force effect in the area
             if (Input.GetKeyDown(KeyCode.X))
             {
-                if (m_LockedTarget != null)
-                {
-                    //Removes all references of the locked target in the scene, so it can be safely removed
-                    BM.UpdateReferences(m_LockedTarget, m_LockedTarget.GetComponent<InteractableCustom>().GetID());
-                    Collider[] hits = Physics.OverlapSphere(m_LockedTarget.transform.position, ExplosionRadius);
-                    foreach (Collider h in hits)
-                    {
-                        GameObject go = h.gameObject;
-                        //Only affects other interactables for now
-                        if (go.GetComponent<InteractableCustom>())
-                        {
-
-                            Rigidbody rb = h.GetComponent<Rigidbody>();
-                            if (rb != null)
-                            {
-                                rb.AddExplosionForce(ExplosionForce, m_LockedTarget.transform.position, ExplosionRadius, 5.0f);
-                            }
-                        }
-                    }
-
-                    Destroy(m_LockedTarget);
-                    m_LockedTarget = null;
-                }
-
+                RemoveTarget();
             }
 
         }
@@ -219,6 +200,38 @@ namespace Construct.Interaction
                 return BM.LookUpObjectByID(res);
             }
 
+
+        }
+
+        /// <summary>
+        /// Removes locked target object, clears references and adds explosion effect
+        /// upon deleting the respective gameobject.
+        /// </summary>
+        private void RemoveTarget() 
+        {
+            if (m_LockedTarget != null)
+            {
+                //Removes all references of the locked target in the scene, so it can be safely removed
+                BM.UpdateReferences(m_LockedTarget, m_LockedTarget.GetComponent<InteractableCustom>().GetID());
+                Collider[] hits = Physics.OverlapSphere(m_LockedTarget.transform.position, ExplosionRadius);
+                foreach (Collider h in hits)
+                {
+                    GameObject go = h.gameObject;
+                    //Only affects other interactables for now
+                    if (go.GetComponent<InteractableCustom>())
+                    {
+
+                        Rigidbody rb = h.GetComponent<Rigidbody>();
+                        if (rb != null)
+                        {
+                            rb.AddExplosionForce(ExplosionForce, m_LockedTarget.transform.position, ExplosionRadius, 5.0f);
+                        }
+                    }
+                }
+
+                Destroy(m_LockedTarget);
+                m_LockedTarget = null;
+            }
 
         }
     }

@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/// <summary>
+/// Renders a line between an origin and a target position.
+/// </summary>
 public class LineRendererController : Singleton<LineRendererController>
 {
+    #region VAR
     [Header("Attributes")]
     [Range(0.2f, 0.8f)]
     public float LineThickness;
@@ -26,6 +29,8 @@ public class LineRendererController : Singleton<LineRendererController>
 
     private Vector3 m_PrevOriginPostion;
     private Vector3 m_PrevTargetPosition;
+    #endregion
+
 
     private void Start()
     {

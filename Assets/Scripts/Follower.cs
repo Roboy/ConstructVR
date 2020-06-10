@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using PathCreation;
 
+/// <summary>
+/// Enables the drone gameobject to follow a certain path.
+/// Following the path is called autopilot.
+/// This option can be turned on or off.
+/// </summary>
 public class Follower : MonoBehaviour
 {
     #region PUB VAR
@@ -28,14 +33,17 @@ public class Follower : MonoBehaviour
 
     private void Awake()
     {
-        m_InitRotation = transform.rotation;
-        m_Animator = GetComponent<Animator>();
-        m_LoadingComplete = true;
+        Initialise();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (!m_LoadingComplete)
+        {
+            Initialise();
+            return;
+        }
+
         if (isAutoPiloting)
         {
             AutoPilot();
@@ -43,6 +51,16 @@ public class Follower : MonoBehaviour
 
     }
 
+    private void Initialise() 
+    {
+        m_InitRotation = transform.rotation;
+        m_Animator = GetComponent<Animator>();
+        m_LoadingComplete = true;
+    }
+
+    /// <summary>
+    /// Follows the given path and sets the pose of the drone accordingly.
+    /// </summary>
     public void AutoPilot()
     {
         m_DistanceTravelled += FollowSpeed * Time.deltaTime;
@@ -54,6 +72,7 @@ public class Follower : MonoBehaviour
         transform.rotation = new Quaternion(m_InitRotation.x, transform.rotation.y, m_InitRotation.z, transform.rotation.w);
     }
 
+    //Is called when properties in the editor change values
     private void OnValidate()
     {
         if (m_LoadingComplete)

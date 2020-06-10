@@ -9,22 +9,26 @@ namespace Construct.Interaction
     /// </summary>
     public class BallManager : MonoBehaviour
     {
+        #region VAR
         [Header("References")]
         [SerializeField]
         private List<GameObject> m_Balls = new List<GameObject>();
         [SerializeField]
         private Dictionary<int, GameObject> m_InteractableObjects = new Dictionary<int, GameObject>();
+        private bool m_initialised = false;
+        #endregion
 
-        // Start is called before the first frame update
         void Start()
         {
             InitializeBalls();
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
-
+            if (!m_initialised) 
+            {
+                InitializeBalls();
+            }
         }
 
         /// <summary>
@@ -46,6 +50,8 @@ namespace Construct.Interaction
 
                 id++;
             }
+
+            m_initialised = true;
         }
         /// <summary>
         /// Returns the GameObject by its ID.

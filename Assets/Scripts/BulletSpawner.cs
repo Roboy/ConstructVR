@@ -2,8 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Can shoot projectiles from a origin position towards a target position.
+/// Projectile are influenced by their mass and gravity.
+/// Custom gravity values other than g can also be set.
+/// </summary>
 public class BulletSpawner : MonoBehaviour
 {
+    #region VAR
     [Header("Attributes")]
     public Vector3 Size = new Vector3(0.5f, 0.5f, 0.5f);
     public float Mass = 1.0f;
@@ -15,9 +21,12 @@ public class BulletSpawner : MonoBehaviour
 
     [SerializeField]
     private List<GameObject> Bullets = new List<GameObject>();
+    #endregion
+
 
     void Start()
     {
+        //Define custom gravity value, default value is g
         Physics.gravity = new Vector3(0.0f, Gravity, 0.0f);   
     }
 
@@ -36,6 +45,9 @@ public class BulletSpawner : MonoBehaviour
         Physics.gravity = new Vector3(0.0f, Gravity, 0.0f);
     }
 
+    /// <summary>
+    /// Spawns a primitive object and shoots it towards target position.
+    /// </summary>
     private void SpawnBullet() 
     {
         //Calculate vector to target object
@@ -54,13 +66,14 @@ public class BulletSpawner : MonoBehaviour
         Bullets.Add(go);
     }
 
+    //Destroys projectiles after the reach a certain distance or collide with other objects.
     private void UpdateBullets() 
     {
         if (Bullets.Count > 0) 
         {
         foreach (GameObject go in Bullets) 
             {
-                //CHECK FOR DESTROY AND THEN KILL IT
+                //TODO: Collision check and destroy
             }
         }
     

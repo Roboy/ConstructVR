@@ -5,9 +5,11 @@ using Valve.VR;
 
 namespace Construct.Utilities
 {
+    /// <summary>
+    /// Helps traversing and using data structures such as lists, arrays, etc.
+    /// </summary>
     public class DataStructHelper : MonoBehaviour
     {
-
         #region Lists
         /// <summary>
         /// Returns the next element in a list.

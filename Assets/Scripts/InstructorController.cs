@@ -5,6 +5,11 @@ using Valve.VR;
 
 namespace Construct.Interaction
 {
+    /// <summary>
+    /// Controls a game character that interacts with the operator.
+    /// This instructor can hand out objects that can be picked up.
+    /// It is further able to indicate intentions, e.g. waving, towards the operator.
+    /// </summary>
     public class InstructorController : Singleton<InstructorController>
     {
 
@@ -30,17 +35,23 @@ namespace Construct.Interaction
         private Animator m_Animator;
         [SerializeField]
         private GameObject HeldItem;
+        private bool m_initialised = false;
         #endregion
 
 
         void Start()
         {
-            m_Animator = GetComponent<Animator>();
-            PresentItem.AddOnStateDownListener(TriggerDown, handType);
+            Initialise();
         }
 
         void Update()
         {
+            if (!m_initialised)
+            {
+                Initialise();
+                return;
+            }
+
             if (Input.GetKeyDown(KeyCode.I))
             {
                 if (HeldItem == null)
@@ -57,6 +68,19 @@ namespace Construct.Interaction
 
         }
 
+        private void Initialise() 
+        {
+            m_Animator = GetComponent<Animator>();
+            PresentItem.AddOnStateDownListener(TriggerDown, handType);
+            m_initialised = true;
+        }
+
+        /// <summary>
+        /// If a certain button is pressed on the controller an object is spawned
+        /// and raised to be picked up by the operator.
+        /// </summary>
+        /// <param name="fromAction"></param>
+        /// <param name="fromSource"></param>
         private void TriggerDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
         {
             Debug.Log("Trigger is down");
@@ -73,6 +97,9 @@ namespace Construct.Interaction
             int rand = Random.Range(0, count);
             return PrefabItems[rand];
         }
+        /// <summary>
+        /// Turns the walking animation of the instructor character on or off.
+        /// </summary>
         private void ToggleWalk()
         {
             m_Walking = !m_Walking;
@@ -143,6 +170,10 @@ namespace Construct.Interaction
             m_Animator.SetBool("isHoldingObject", false);
         }
 
+        /// <summary>
+        /// This enables the object to be picked up by the operator.
+        /// It detaches the object from its parent (instructor).
+        /// </summary>
         private void DetachItem()
         {
 

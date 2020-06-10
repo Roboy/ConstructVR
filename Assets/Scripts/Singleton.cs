@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Singletons make sure that only one instance of an object can exist at runtime.
+/// </summary>
+/// <typeparam name="T"></typeparam>
 public abstract class Singleton<T> : MonoBehaviour where T : Component
 {
 
